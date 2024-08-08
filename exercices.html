@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EXERCICES</h1>
+    <script>
+        let nb1 = prompt("Taper un 1er nombre");
+        let nb2 = prompt("Taper un 2nd nombre");
+        let resultat = nb1 - nb2;
+
+        if (resultat) {
+           document.write(nb1 + " - " + nb2 + " = " + resultat + "<br>" ); 
+        } else {
+            alert("Veuillez taper 2 nombres, svp !");
+        }
+
+        // solution 2 : fixe le bug pour resultat = 0
+        if( isNaN(resultat) ) {
+            alert("Veuillez taper 2 nombres, svp !");
+        } else {
+           document.write(nb1 + " - " + nb2 + " = " + resultat + "<br>" ); 
+        }
+
+
+    </script>
+
+</body>
+</html>

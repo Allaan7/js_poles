@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.O.M.</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .rouge{
+            background-color: red;
+        }
+        .bleu{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+
+    <script>
+        /* 
+        window : objet qui représente la fenêtre (= onglet) du navigateur
+        document : objet qui représente la page HTML actuellement chargée dans
+                      la fen^tre de navigation
+        Il y a une hiérarchie : document est une propriété de window.
+        Tous les éléments HTML de la page sont des enfants de l'objet 'document'.
+        */
+        window.addEventListener("load", function() {
+            let maDiv = document.getElementById("ma-div");
+            console.log("maDiv", maDiv);
+            maDiv.style.backgroundColor = "green";
+            maDiv.style.width = "500px";
+
+            /* Un écouteur d'évènement est une fonction qui va s'exécuter
+            quand un évènement particulier va être déclanché. */
+            maDiv.addEventListener("mouseover", function(mouseEvent) {
+                this.innerHTML = "texte modifié";
+            });
+
+            maDiv.addEventListener("mouseout", function(mouseEvent){
+                this.innerHTML = "nouveau texte";
+            })
+
+            /* EXO : lorsque l'on clique sur la div#resultat, changer :
+                - la couleur de fond en lightgray
+                -la couleur du texte en blue
+                le texte en "vous avez cliqué sur la balise résultat"
+                NB : l'évènement s'appelle click
+             */
+
+             let divResultat = document.getElementById("resultat");
+                console.log("divResultat", divResultat);
+
+            divResultat.addEventListener("click", function(click) {
+                this.innerHTML = "vous avez cliqué sur la balise résultat";
+                this.style.backgroundColor = "lightgray";
+                this.style.color = "blue";
+            }) 
+
+            
+            // CORRECTION
+            document.getElementById("resultat").addEventListener("click", function(){
+                this.style.backgroundColor = "lightgray";
+                this.style.color = "blue";
+                this.innerHTML = "vous avez cliqué sur la balise résultat";
+            })
+
+            /* Pour récupérer les élements HTML selon la balise (tag en VO) : getElementsByTagName */
+            let balisesDIV = document.getElementsByTagName("div");
+            console.log(balisesDIV);
+            for(const div of balisesDIV) {
+                div.style.border = "5px inset ";
+            }
+
+            /* Pour récupérer les éléments HTML avec la classe : getElementsByClassName */
+            let classesRouge = document.getElementsByClassName("rouge");
+            console.log(classesRouge);
+            // FOR IN : permet de parcourir toutes les propriétés d'un objet
+            for(const indice in classesRouge) {
+                console.log(indice);
+                if( !isNaN(indice) ) {
+                    classesRouge[indice].style.fontSize = "30px";
+                }
+            }
+
+            /* Pour récuperer les éléments HTML avec la propriété 'name' getElementsByName */
+            let inputs = document.getElementsByName("prenom");
+            /* les balises qui ont un attribut name sont input, select et textarea.
+            La propriété name permet d'envoyer la valeur du champ du formulaire lorsque celui-ci est soumis. */
+        
+            /* Pour récupérer les éléments selon le sélecteur CSS : querySelectorAll */
+            let divClasses = document.querySelectorAll("div.rouge, div.bleu");
+            console.log(divClasses);
+            divClasses.forEach( function(element, indice) {
+                console.log("forEach", indice, element);
+                element.style.display = "none";
+            })
+
+            /* Pour récupérer un élément selon un sélecteur CSS : querySelector */
+            document.querySelector("#resultat").style.left = "50%";
+            document.querySelector("#resultat").style.position = "relative";
+
+            // EXO : quand on clique sur la balise H1, toutes les div.bleu et div.rouge doivent
+            //          réapparaitre
+
+            document.querySelector("h1").addEventListener("click", function() {
+                element.display = ""
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+    <h1>Documents Object Model</h1>
+    <div id="ma-div" class="rouge">
+        texte avant le survol
+    </div>
+    <div class="rouge">rouge</div>
+    <div class="bleu">bleu</div>
+    <a href="base.html">base.html</a>
+    <hr>
+    <div id="resultat">résultat</div>
+</body>
+</html>
