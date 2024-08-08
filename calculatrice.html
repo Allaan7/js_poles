@@ -5,7 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculatrice</title>
     <style>
-
+        form {
+            width: 80vw;
+            top: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        [type="number"] {
+            background-color: lightblue;
+        }
+        a {
+            padding: 5px 10px;
+            border: 2px inset lightgray;
+        }
+        form > div:first-child {
+            margin-bottom: 10px;
+        }
     </style>
     <script src="js/calculatrice.js" defer></script>
 </head>
