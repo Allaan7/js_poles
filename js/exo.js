@@ -98,5 +98,14 @@ console.log( nbEntiers.length );
 /* 
 6. affichez tous les nombres de 5 à 12
 */
+let nombres = [5, 6, 7, 8, 9, 10, 11, 12];
+console.log(nombres[0], nombres[1], nombres[2], nombres[3], nombres[4], nombres[5], nombres[6], nombres[7])
 
-/* nbEntiers.splice(1, 1) */
+/*
+7. calculez la moyenne d'age de la classe 
+*/
+let ages = [ 27, 19, 42, 26, 32, 22, 20, 24, 20, 26 ];
+let moyenne = ages[0] + ages[1] + ages[2] + ages[3] + ages[4] + ages[5] + ages[6] + ages[7] + ages[8] + ages[9] + ages[10];
+let nombreEleves = 9;
+let moyenneFinale = moyenne / nombreEleves;
+console.log(moyenneFinale);
