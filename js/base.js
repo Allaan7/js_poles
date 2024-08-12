@@ -136,5 +136,32 @@ NOMMAGE DES VARIABLES
 let a;
 let A;
 
+/* LES CONSTANTES */
+/* une constante, contrairement à une variable ne change pas de valeurs. 
+    Pour la déclaration, on utilise le mot-clé 'const'.
+    Les règles de nommage sont les mêmes que pour les variables.
+    
+    Par convention, dans la plupart des languages de programmation, le nom
+    des constantes est tout en MAJUSCULES (mais ce n'est pas toujours le cas pour js).
+    */
+
+const JOUR = "lundi";
+
+document.write("Aujourd'hui nous sommes le " + JOUR + "12 aout");
+// JOUR = "quelque chose"; (interdit)
+
+/* constante JS : undefined, NaN
+                    Math.PI
+*/
+const tableauConst = [ 2, 5, 9 ];
+// tableauConst = "autre chose"; (interdit)
+tableauConst.push(789);
+console.log(tableauConst);
+
+tableauConst[1] = "nouvelle valeur";
+
+
+
+
 
 
