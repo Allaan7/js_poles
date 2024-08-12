@@ -105,7 +105,39 @@ console.log(nombres[0], nombres[1], nombres[2], nombres[3], nombres[4], nombres[
 7. calculez la moyenne d'age de la classe 
 */
 let ages = [ 27, 19, 42, 26, 32, 22, 20, 24, 20, 26 ];
-let moyenne = ages[0] + ages[1] + ages[2] + ages[3] + ages[4] + ages[5] + ages[6] + ages[7] + ages[8] + ages[9] + ages[10];
+let moyenne = ages[0] + ages[1] + ages[2] + ages[3] + ages[4] + ages[5] + ages[6] + ages[7] + ages[8] + ages[9];
 let nombreEleves = 9;
 let moyenneFinale = moyenne / nombreEleves;
 console.log(moyenneFinale);
+
+// 6. affichez tous les nombres de 5 a 12
+for(let i = 5; i <= 12; i++){
+    console.log(i);
+};
+
+
+// 7. calculez la moyenne d'age de la classe
+let age = [27, 19, 42, 26, 32, 22, 20, 24, 20, 26];
+
+let somme = 0;
+// avec la boucle FOR
+
+for(let i=0; i<= age.length - 1; i++ ){
+    somme += ages[i];
+}
+
+// avec la boucle FOR OF
+for (let age of ages){
+    somme += age;
+}
+
+let moyenne = somme / ages.length;
+console.log(moyenne);
+
+// affichez tous les ages
+let compteur = 0;
+let compteur2 = 0;
+for(let i = 0; i < 10; ++i) {
+	console.log("compteur", compteur++);
+	console.log("compteur2", ++compteur2);
+}
