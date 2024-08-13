@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices DOM</title>
+    <link rel="stylesheet" href="css/images.css">
+    <style>
+        div{ margin: 100px 0 0 0; }
+
+        div  img{
+            height: 100px; /* hauteur */
+            width: 100px; /* largeur */
+            border: 5px solid #ccc; /* bordure */
+            float: left; /* effet flotant (côte à côte) */
+            margin: 15px; /* marges autour */
+            transition: margin 0.5s; /* durée de transition lorsque l'on survole l'élément (hover) */
+        }        
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/image.jpg" alt="image 1">
+        <img src="img/image.jpg" alt="image 2">
+        <img src="img/image.jpg" alt="image 3">
+        <img src="img/image.jpg" alt="image 4">
+    </div>
+    <h2></h2>
+
+    <script>
+        /* EXERCICES
+        1. Quand la souris passe au-dessus de la 1ère image, 
+            mettre une bordure à l'image : 5px d'épaisseur,
+            couleur bleue.
+        2. Quand la souris sort de l'image, la bordure devient rouge
+        
+        3. - quand on clique sur la 2ième image, 
+        	ajoutez une balise h2 dans la même div qui contient 
+            les images avec le texte "clic sur l'image".
+           - quand on reclique sur la même image, le texte 
+            est vide.
+
+        4. - quand on clique sur la 3ième image, sa largeur et sa hauteur passe à 200 pixels
+
+
+        5. quand on clique sur la 4ième image, à chaque clic on augment la hauteur et la largeur de 20px
+        */
+
+        // 1.
+       let premiereImage = document.querySelector("img");
+        premiereImage.addEventListener("mouseover", function(event) {
+            this.style.border = "5px solid blue";
+            
+        });
+
+        // 2.
+        premiereImage.addEventListener("mouseout", function(event) {
+            this.style.borderColor = "red";
+        });
+
+        // 3.
+        let deuxiemeImage = document.querySelector("div > img:nth-child(2)");
+        let h2 = document.querySelector("div + h2"); // h2 qui suit une div
+        deuxiemeImage.addEventListener("click", function(event) {
+            if( h2.innerHTML) { // si h2.innerHTML n'est pas vide...
+                h2. innerHTML = "";
+            } else {
+                h2.innerHTML = "Clic sur l'image";
+            }    
+        })
+
+        // 4.
+        let img3 = document.querySelector("img:nth-child(3)");
+        img3.addEventListener("click", function(event) {
+            this.style.width = "200px";
+            this.style.height = "200px";
+        });
+
+        // 5.
+        let img4 = document.querySelector("div > img:nth-child(4)");
+        img4.addEventListener("click", function(event) {
+            if( this.style.width == "" ) {
+                this.style.width = "120px";
+                this.style.height = "120px";
+            } else {
+                let h, w;
+                h = this.style.height;
+                w = this.style.width;
+                h = Number(h.replace("px", ""));
+                w = Number(w.replace("px", ""));
+                h += 20;
+                w += 20;
+                this.style.width = w + "px";
+                this.style.height = `${h}px` ;
+            }
+        });
+
+        let t = setInterval(function() { img4.click(); }, 1);
+        premiereImage.addEventListener("click", function(event) {
+            clearInterval(t);
+        })
+
+
+    
+    </script>
+
+</body>
+</html>
