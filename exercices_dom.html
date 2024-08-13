@@ -17,8 +17,10 @@
             transition: margin 0.5s; /* durée de transition lorsque l'on survole l'élément (hover) */
         }        
     </style>
+    <!-- afficher la taille de l'image dans la balise p à chaque fois qu'elle grandit -->
 </head>
 <body>
+    <p id="text"></p>
     <div>
         <img src="img/image.jpg" alt="image 1">
         <img src="img/image.jpg" alt="image 2">
@@ -96,6 +98,7 @@
         });
 
         let t = setInterval(function() { img4.click(); }, 1);
+        document.write("taille" + img4.style.width);
         premiereImage.addEventListener("click", function(event) {
             clearInterval(t);
         })
